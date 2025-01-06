@@ -51,6 +51,7 @@ ADD requirements.txt .
 RUN pip3 install --require-hashes -U -r requirements.txt
 RUN pip3 install git+https://github.com/beancount/beanprice.git@41576e2ac889e4825e4985b6f6c56aa71de28304
 RUN pip3 install git+https://github.com/andreasgerstmayr/fava-portfolio-returns.git@de68b54f3ac517adfde3a4ccb41fdb09a0da41d1
+RUN pip3 install git+https://github.com/andreasgerstmayr/fava-dashboards.git@c45503dccc0a86c3767a2c71dfb234c48d5ca905
 
 RUN pip3 uninstall -y pip
 
@@ -65,6 +66,6 @@ EXPOSE 5000
 ENV BEANCOUNT_FILE=""
 
 ENV FAVA_HOST="0.0.0.0"
-ENV PATH="/app/bin:$PATH"
+ENV PATH="/bean:/app/bin:$PATH"
 
 ENTRYPOINT ["fava"]
